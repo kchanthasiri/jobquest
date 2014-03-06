@@ -1,0 +1,17 @@
+<h1>Create New Question</h1>
+
+<%= form_for(@question) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :details %>
+	<%= f.text_field :details %>
+	<%= f.label :user %>
+	<%= f.text_field :user %>
+	<%= f.label :job %>
+	<%= f.text_field :job %>
+	<%= f.label :firm %>
+	<%= f.text_field :firm %>
+	<%= f.label :category %>
+	<%= f.text_field :category %>
+	<%= f.submit %>
+<% end %>

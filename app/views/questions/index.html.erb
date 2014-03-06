@@ -1,0 +1,20 @@
+<h1>Welcome to JobQuest</h1>
+<hr>
+<p><%= link_to "New Question", new_question_path%></p>
+
+
+<br>
+<br>
+<br>
+<br>
+<h1>Interview Questions</h1>
+<hr>
+<% @question.each do |q| %>
+	<h2>Question: <%= q.title %></h2>
+	<p>Details: <%= q.details %></p>
+	<p>Asked by: <span style="color:blue"><%= q.user %></span></p>
+	<p>Job: <%= q.job %></p>
+	<p>Firm: <%= q.firm %></p>
+	<p><%= link_to "Edit", edit_question_path(q.id) %></p>
+	<hr>
+<% end %>
