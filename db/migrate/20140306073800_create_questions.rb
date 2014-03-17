@@ -6,7 +6,8 @@ class CreateQuestions < ActiveRecord::Migration
     	t.string :user
     	t.string :job
     	t.string :firm
-    	t.string :category	
+    	t.string :category
+      t.integer :userid
       t.timestamps
     end
   end
