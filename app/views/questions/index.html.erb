@@ -10,11 +10,10 @@
 <h1>Interview Questions</h1>
 <hr>
 <% @question.each do |q| %>
-	<h2>Question: <%= q.title %></h2>
-	<p>Details: <%= q.details %></p>
-	<p>Asked by: <span style="color:blue"><%= q.user %></span></p>
-	<p>Job: <%= q.job %></p>
-	<p>Firm: <%= q.firm %></p>
-	<p><%= link_to "Edit", edit_question_path(q.id) %></p>
+	<h2>Question: <%= q.question_title %></h2>
+	<p>Details: <%= q.question_body %></p>
+	<p>Asked: <%= @user.find_by(id: q.user_id).email %></p>
+	<p><%= link_to "Edit", edit_question_path(q.id) %> | <%= link_to "Delete", question_path(current_user.questions[0]), :confirm => "Are you sure ?", :method => :delete %> </p>
+	
 	<hr>
 <% end %>

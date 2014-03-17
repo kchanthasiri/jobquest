@@ -8,6 +8,15 @@
 </head>
 <body>
 
+	<!-- If user is signed in show user email if not show sign up and sign in link -->
+	<% if user_signed_in? %>
+		<%= current_user.email %>
+		<%= link_to  "Sign Out", destroy_user_session_path, method: :delete %>
+		<!-- Need to call this second method delete in order to not browse to another url and sign out -->
+	<% else %>
+		<%= link_to  "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %>
+	<% end %>
+
 	<!-- Code for flash messages, notices and alerts that apear when user sign in is successful or fails -->
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
