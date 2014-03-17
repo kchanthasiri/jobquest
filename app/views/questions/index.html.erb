@@ -13,7 +13,9 @@
 	<h2>Question: <%= q.question_title %></h2>
 	<p>Details: <%= q.question_body %></p>
 	<p>Asked: <%= @user.find_by(id: q.user_id).email %></p>
-	<p><%= link_to "Edit", edit_question_path(q.id) %> | <%= link_to "Delete", question_path(current_user.questions[0]), :confirm => "Are you sure ?", :method => :delete %> </p>
-	
+	<% if current_user == q.user %>
+		<%= link_to "Edit", edit_question_path(q.id) %> | <%= link_to "Delete", :confirm => "Are you sure ?", :method => :delete %>
+		<% else %>
+		<% end %>
 	<hr>
 <% end %>
