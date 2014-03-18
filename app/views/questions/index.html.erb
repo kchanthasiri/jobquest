@@ -19,7 +19,7 @@
 		<%= link_to "Edit", edit_question_path(q.id) %> | <%= link_to "Delete", :confirm => "Are you sure ?", :method => :delete %>
 		<% else %>
 	<% end %>
-	
+
 	<h4>Answers:</h4>
 	
 	<% q.comments.each do |c| %>
@@ -28,6 +28,10 @@
 		<% if current_user == q.user %>
 		<%= link_to "Edit", edit_question_comment_path(q.id, c.id) %> | <%= link_to "Delete", :confirm => "Are you sure ?", :method => :delete %>
 		<% else %>
+		<%= c.upvotes.size %>
+		<%= link_to "Upvote", upvote_question_comment_path(q.id, c.id), method: :put %>
+		<%= c.downvotes.size %>
+		<%= link_to "Downvote", downvote_question_comment_path(q.id, c.id), method: :put %>
 		<% end %>
 	<% end %>
 	

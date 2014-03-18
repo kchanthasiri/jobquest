@@ -34,11 +34,24 @@ class CommentsController < ApplicationController
 	  	end
   	end	
 
-
 	def destroy
 		@comment = Comment.find(params[:id]).destroy
   		redirect_to root_path
   	end
+
+  	def upvote
+		@question = Question.find(params[:question_id])
+		@comment = @question.comments.find(params[:id])
+		@comment.liked_by current_user
+		redirect_to root_path
+	end
+
+	def downvote
+	  	@question = Question.find(params[:question_id])
+	  	@comment = @question.comments.find(params[:id])
+	  	@comment.downvote_from current_user
+		redirect_to root_path
+	end
 
 	private
 

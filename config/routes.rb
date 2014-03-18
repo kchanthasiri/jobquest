@@ -14,9 +14,14 @@ Jobquest::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :questions do
-      resources :comments
+      resources :comments do
+        member do
+        put "upvote", to: "comments#upvote"
+        put "downvote", to: "comments#downvote"
+        end
+      end
     end
-    
+
   # Example resource route with options:
   #   resources :products do
   #     member do

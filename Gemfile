@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+
+gem 'acts_as_votable', '~> 0.8.0'
