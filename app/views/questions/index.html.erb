@@ -9,13 +9,28 @@
 <br>
 <h1>Interview Questions</h1>
 <hr>
+
+<!-- For each question show question, details of question and who asked the question -->
 <% @question.each do |q| %>
-	<h2>Question: <%= q.question_title %></h2>
-	<p>Details: <%= q.question_body %></p>
-	<p>Asked: <%= @user.find_by(id: q.user_id).email %></p>
+	<h3>Question: <%= q.question_title %></h3>
+	<p>Details: <%= q.question_body %> </p>
+	<p>Asked by <strong><%= @user.find_by(id: q.user_id).email %></strong> at <%= q.created_at %></p>
 	<% if current_user == q.user %>
 		<%= link_to "Edit", edit_question_path(q.id) %> | <%= link_to "Delete", :confirm => "Are you sure ?", :method => :delete %>
 		<% else %>
+	<% end %>
+	
+	<h4>Answers:</h4>
+	
+	<% q.comments.each do |c| %>
+		<p> <%= c.text %> </p>
+		<p>Answered by <strong><%= c.user.email %></strong> at <%= c.created_at %></p>
+		<% if current_user == q.user %>
+		<%= link_to "Edit", edit_question_comment_path(q.id, c.id) %> | <%= link_to "Delete", :confirm => "Are you sure ?", :method => :delete %>
+		<% else %>
 		<% end %>
+	<% end %>
+	
+	<p><%= link_to "Answer", new_question_comment_path(q.id)%></p>	
 	<hr>
 <% end %>

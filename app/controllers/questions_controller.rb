@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
 	def index
 		@question = Question.all
 		@user = User.all
+		@comment = Comment.all
 	end
 
 	def new

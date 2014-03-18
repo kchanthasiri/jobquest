@@ -1,0 +1,9 @@
+<h1>Edit Comment</h1>
+
+<%= form_for([@question, @comment])  do |f| %>
+	<%= f.label :text %>
+	<%= f.text_field :text %>
+	<%= f.submit %>
+<% end %>
+
+<p><%= link_to "Delete", question_comment_path(@question.id, @comment.id), :method => :Delete %></p>
