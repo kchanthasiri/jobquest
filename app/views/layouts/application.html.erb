@@ -8,20 +8,49 @@
 </head>
 <body>
 
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
 	<!-- If user is signed in show user email if not show sign up and sign in link -->
-	<% if user_signed_in? %>
-		<%= current_user.email %>
-		<%= link_to  "Sign Out", destroy_user_session_path, method: :delete %>
-		<!-- Need to call this second method delete in order to not browse to another url and sign out -->
-	<% else %>
-		<%= link_to  "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %>
-	<% end %>
+		<div class = "navbar-header">
+        	<h2><%= link_to "JobQuest", root_path %></h2>
 
-	<!-- Code for flash messages, notices and alerts that apear when user sign in is successful or fails -->
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+			<!-- New question link -->
+      	</div>
 
-<%= yield %>
+      	<div class = "nav navbar-nav orm-group">
+			<ul>
+				<!-- Search field form -->
+				<%= form_tag "/", method: "GET" do %>
+				<%= text_field_tag :search, params[:search], :id => 'search_field' %>
+				<%= submit_tag "Search", :name => nil, :class => 'btn btn-success' %> 
+				<% end %> 
+			</ul>
+      	</div>
+
+      	<div>
+			<ul class="nav navbar-nav navbar-right">
+				<%= link_to "New Question", new_question_path, :class => "btn btn-success"%>
+				<% if user_signed_in? %>
+					<li><%= current_user.email %></li>
+					<li><%= link_to  "Sign Out", destroy_user_session_path, method: :delete %></li>
+				<!-- Need to call this second method delete in order to not browse to another url and sign out -->
+				<% else %>
+					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+					<li><%= link_to "Sign In", new_user_session_path %></li>
+				<% end %>
+			</ul>
+		</div>
+    </div>
+</div>
+
+<div class= "container">
+	<%= notice %>
+	<%= alert %>
+</div>
+
+<div class = "container">
+	<%= yield %>
+</div>	
 
 </body>
 </html>

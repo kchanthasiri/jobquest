@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 	before_filter :authenticate_user!, only: [:new, :create]
 
 	def index
-		@question = Question.all
+		@question = Question.search_for(params[:search])
 		@user = User.all
 		@comment = Comment.all
 	end
