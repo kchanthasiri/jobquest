@@ -47,6 +47,10 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
+    hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -62,6 +66,15 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.0)
+    oauth (0.4.7)
+    omniauth (1.2.1)
+      hashie (>= 1.2, < 3)
+      rack (~> 1.0)
+    omniauth-linkedin (0.1.0)
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -124,8 +137,11 @@ DEPENDENCIES
   acts_as_votable (~> 0.8.0)
   coffee-rails (~> 4.0.0)
   devise
+  figaro
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth
+  omniauth-linkedin
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
   sdoc
