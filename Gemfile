@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development, :test do
+	gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -44,12 +46,19 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Authentication gems
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 
-
+# Voting gems
 gem 'acts_as_votable', '~> 0.8.0'
 
-
+# Authentication configuration gem
 gem 'figaro'
+
+# Heroku deployment gems
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
