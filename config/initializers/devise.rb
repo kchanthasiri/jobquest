@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = 'ba423f5cb271e7d712a282cf00979d81bdc68440d14faa126324bbe67f94ffe57398474b4d51c54699fded39d13ab66c6500874da52a0c8977c1d9d5e4afdfc6'
-    # config.secret_key = 'dd07eecb469bcb4ea29d0841c680405cabdb4d60aa499fb6e4869fbe87bf582117055f2bf838913b5b346bb57a1affc512850c1865b8f4be3768f216a5bdbf9e'
+  config.secret_key = 'dd07eecb469bcb4ea29d0841c680405cabdb4d60aa499fb6e4869fbe87bf582117055f2bf838913b5b346bb57a1affc512850c1865b8f4be3768f216a5bdbf9e'
 
 
   # ==> Mailer Configuration
@@ -230,7 +230,6 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  require 'omniauth-linkedin'
   config.omniauth :linkedin, ENV["LINKEDIN_CONSUMER_KEY"], ENV["LINKEDIN_CONSUMER_SECRET"]
 
   # ==> Warden configuration
