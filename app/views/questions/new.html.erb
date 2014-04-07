@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1>Create New Question</h1>
 
 <%= form_for(@question) do |f| %>
@@ -5,5 +10,9 @@
 	<%= f.text_field :question_title %>
 	<%= f.label :question_body %>
 	<%= f.text_field :question_body %>
+	<%= f.label :career_list %>
+	<%= f.text_field :career_list %>
+	<%= f.label :company_list %>
+	<%= f.text_field :company_list %>
  	<%= f.submit %>
 <% end %>

@@ -9,11 +9,18 @@
 	<h3>Question: <%= q.question_title %></h3>
 	<p>Details: <%= q.question_body %> </p>
 	<p>Asked by <strong><%= @user.find_by(id: q.user_id).email %></strong> at <%= q.created_at %></p>
+	
+
+	<p>Companies: <%= q.company_list %> <p>
+	<p>Careers: <%= q.career_list %> <p>
+	
+	<!-- Logic if user is the creator of the question they are able to edit/delete the question -->
 	<% if current_user == q.user %>
 		<%= link_to "Edit", edit_question_path(q.id) %> | <%= link_to "Delete", :confirm => "Are you sure ?", :method => :delete %>
 		<% else %>
 	<% end %>
 
+	<!-- Lists all answers to questions -->
 	<h4>Answers:</h4>
 	
 	<% q.comments.each do |c| %>
@@ -28,6 +35,7 @@
 
 	<% end %>
 	
+	<!-- Allows users to answer questions -->
 	<p><%= link_to "Answer", new_question_comment_path(q.id)%></p>	
 	
 <% end %>

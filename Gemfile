@@ -63,3 +63,6 @@ gem 'acts_as_votable', '~> 0.8.0'
 # Authentication configuration gem
 gem 'figaro'
 
+# Allows for tagging questions
+gem 'acts_as_taggable_on'
+
